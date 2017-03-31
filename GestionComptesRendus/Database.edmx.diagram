@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e0fd165a6184bb7b50995ca938b0155" Name="Diagram1">
+        <EntityTypeShape EntityType="GestionComptesRendusModel.ACTIVITE_COMPL" Width="1.5" PointX="1.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.COMPOSANT" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.CONSTITUER" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.DOSAGE" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.FAMILLE" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.INVITER" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.LABO" Width="1.5" PointX="1.5" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.MEDICAMENT" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.OFFRIR" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.POSSEDER" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.PRATICIEN" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.PRESCRIRE" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.PRESENTATION" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.RAPPORT_VISITE" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.REALISER" Width="1.5" PointX="4" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.REGION" Width="1.5" PointX="3.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.SECTEUR" Width="1.5" PointX="1.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.SPECIALITE" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.Switchboard_Items" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.TRAVAILLER" Width="1.5" PointX="7" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.TYPE_INDIVIDU" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.TYPE_PRATICIEN" Width="1.5" PointX="1.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionComptesRendusModel.VISITEUR" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="GestionComptesRendusModel.INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.OFFRIR__212870AC_D285_4251_9654_14A416149517_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.REGION__2A8A348F_6D52_456B_B96A_7B966468977E_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.FORMULER" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionComptesRendusModel.INTERAGIR" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

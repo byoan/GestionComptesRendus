@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GestionComptesRendus.Properties
+namespace GestionComptesRendusEntities.Properties
 {
 
 
