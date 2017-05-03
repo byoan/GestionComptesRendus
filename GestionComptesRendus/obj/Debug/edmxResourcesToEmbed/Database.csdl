@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionComptesRendusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACTIVITE_COMPL">
+    <Key>
+      <PropertyRef Name="AC_NUM" />
+    </Key>
+    <Property Name="AC_NUM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AC_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AC_LIEU" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AC_THEME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AC_MOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="INVITER" Relationship="Self.INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_" FromRole="ACTIVITE_COMPL" ToRole="INVITER" />
+    <NavigationProperty Name="REALISER" Relationship="Self.REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_" FromRole="ACTIVITE_COMPL" ToRole="REALISER" />
+  </EntityType>
+  <EntityType Name="COMPOSANT">
+    <Key>
+      <PropertyRef Name="CMP_CODE" />
+    </Key>
+    <Property Name="CMP_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CMP_LIBELLE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CONSTITUER" Relationship="Self.CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_" FromRole="COMPOSANT" ToRole="CONSTITUER" />
+  </EntityType>
+  <EntityType Name="CONSTITUER">
+    <Key>
+      <PropertyRef Name="MED_DEPOTLEGAL" />
+      <PropertyRef Name="CMP_CODE" />
+    </Key>
+    <Property Name="MED_DEPOTLEGAL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CMP_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CST_QTE" Type="Single" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="COMPOSANT" Relationship="Self.CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_" FromRole="CONSTITUER" ToRole="COMPOSANT" />
+    <NavigationProperty Name="MEDICAMENT" Relationship="Self.CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_" FromRole="CONSTITUER" ToRole="MEDICAMENT" />
+  </EntityType>
+  <EntityType Name="DOSAGE">
+    <Key>
+      <PropertyRef Name="DOS_CODE" />
+    </Key>
+    <Property Name="DOS_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOS_QUANTITE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DOS_UNITE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRESCRIRE" Relationship="Self.PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_" FromRole="DOSAGE" ToRole="PRESCRIRE" />
+  </EntityType>
+  <EntityType Name="FAMILLE">
+    <Key>
+      <PropertyRef Name="FAM_CODE" />
+    </Key>
+    <Property Name="FAM_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FAM_LIBELLE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MEDICAMENT" Relationship="Self.MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_" FromRole="FAMILLE" ToRole="MEDICAMENT" />
+  </EntityType>
+  <EntityType Name="INVITER">
+    <Key>
+      <PropertyRef Name="AC_NUM" />
+      <PropertyRef Name="PRA_NUM" />
+    </Key>
+    <Property Name="AC_NUM" Type="Int32" Nullable="false" />
+    <Property Name="PRA_NUM" Type="Int16" Nullable="false" />
+    <Property Name="SPECIALISTEON" Type="Boolean" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ACTIVITE_COMPL" Relationship="Self.INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_" FromRole="INVITER" ToRole="ACTIVITE_COMPL" />
+    <NavigationProperty Name="PRATICIEN" Relationship="Self.INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_" FromRole="INVITER" ToRole="PRATICIEN" />
+  </EntityType>
+  <EntityType Name="LABO">
+    <Key>
+      <PropertyRef Name="LAB_CODE" />
+    </Key>
+    <Property Name="LAB_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LAB_NOM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LAB_CHEFVENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="VISITEUR" Relationship="Self.VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_" FromRole="LABO" ToRole="VISITEUR" />
+  </EntityType>
+  <EntityType Name="MEDICAMENT">
+    <Key>
+      <PropertyRef Name="MED_DEPOTLEGAL" />
+    </Key>
+    <Property Name="MED_DEPOTLEGAL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MED_NOMCOMMERCIAL" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FAM_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MED_COMPOSITION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MED_EFFETS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MED_CONTREINDIC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MED_PRIXECHANTILLON" Type="Single" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CONSTITUER" Relationship="Self.CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_" FromRole="MEDICAMENT" ToRole="CONSTITUER" />
+    <NavigationProperty Name="FAMILLE" Relationship="Self.MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_" FromRole="MEDICAMENT" ToRole="FAMILLE" />
+    <NavigationProperty Name="OFFRIR" Relationship="Self.OFFRIR__212870AC_D285_4251_9654_14A416149517_" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+    <NavigationProperty Name="PRESCRIRE" Relationship="Self.PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_" FromRole="MEDICAMENT" ToRole="PRESCRIRE" />
+    <NavigationProperty Name="PRESENTATION" Relationship="Self.FORMULER" FromRole="MEDICAMENT" ToRole="PRESENTATION" />
+    <NavigationProperty Name="MEDICAMENT1" Relationship="Self.INTERAGIR" FromRole="MEDICAMENT" ToRole="MEDICAMENT1" />
+    <NavigationProperty Name="MEDICAMENT2" Relationship="Self.INTERAGIR" FromRole="MEDICAMENT1" ToRole="MEDICAMENT" />
+  </EntityType>
+  <EntityType Name="OFFRIR">
+    <Key>
+      <PropertyRef Name="VIS_MATRICULE" />
+      <PropertyRef Name="RAP_NUM" />
+      <PropertyRef Name="MED_DEPOTLEGAL" />
+    </Key>
+    <Property Name="VIS_MATRICULE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RAP_NUM" Type="Int32" Nullable="false" />
+    <Property Name="MED_DEPOTLEGAL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OFF_QTE" Type="Int16" />
+    <NavigationProperty Name="MEDICAMENT" Relationship="Self.OFFRIR__212870AC_D285_4251_9654_14A416149517_" FromRole="OFFRIR" ToRole="MEDICAMENT" />
+    <NavigationProperty Name="RAPPORT_VISITE" Relationship="Self.OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_" FromRole="OFFRIR" ToRole="RAPPORT_VISITE" />
+  </EntityType>
+  <EntityType Name="POSSEDER">
+    <Key>
+      <PropertyRef Name="PRA_NUM" />
+      <PropertyRef Name="SPE_CODE" />
+    </Key>
+    <Property Name="PRA_NUM" Type="Int16" Nullable="false" />
+    <Property Name="SPE_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="POS_DIPLOME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="POS_COEFPRESCRIPTION" Type="Single" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SPECIALITE" Relationship="Self.POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_" FromRole="POSSEDER" ToRole="SPECIALITE" />
+    <NavigationProperty Name="PRATICIEN" Relationship="Self.POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_" FromRole="POSSEDER" ToRole="PRATICIEN" />
+  </EntityType>
+  <EntityType Name="PRATICIEN">
+    <Key>
+      <PropertyRef Name="PRA_NUM" />
+    </Key>
+    <Property Name="PRA_NUM" Type="Int16" Nullable="false" />
+    <Property Name="PRA_NOM" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_PRENOM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_ADRESSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_CP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_VILLE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_COEFNOTORIETE" Type="Single" />
+    <Property Name="TYP_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="INVITER" Relationship="Self.INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_" FromRole="PRATICIEN" ToRole="INVITER" />
+    <NavigationProperty Name="POSSEDER" Relationship="Self.POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_" FromRole="PRATICIEN" ToRole="POSSEDER" />
+    <NavigationProperty Name="TYPE_PRATICIEN" Relationship="Self.PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_" FromRole="PRATICIEN" ToRole="TYPE_PRATICIEN" />
+    <NavigationProperty Name="RAPPORT_VISITE" Relationship="Self.RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_" FromRole="PRATICIEN" ToRole="RAPPORT_VISITE" />
+  </EntityType>
+  <EntityType Name="PRESCRIRE">
+    <Key>
+      <PropertyRef Name="MED_DEPOTLEGAL" />
+      <PropertyRef Name="TIN_CODE" />
+      <PropertyRef Name="DOS_CODE" />
+    </Key>
+    <Property Name="MED_DEPOTLEGAL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TIN_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOS_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PRE_POSOLOGIE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DOSAGE" Relationship="Self.PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_" FromRole="PRESCRIRE" ToRole="DOSAGE" />
+    <NavigationProperty Name="MEDICAMENT" Relationship="Self.PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_" FromRole="PRESCRIRE" ToRole="MEDICAMENT" />
+    <NavigationProperty Name="TYPE_INDIVIDU" Relationship="Self.PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_" FromRole="PRESCRIRE" ToRole="TYPE_INDIVIDU" />
+  </EntityType>
+  <EntityType Name="PRESENTATION">
+    <Key>
+      <PropertyRef Name="PRE_CODE" />
+    </Key>
+    <Property Name="PRE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PRE_LIBELLE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MEDICAMENT" Relationship="Self.FORMULER" FromRole="PRESENTATION" ToRole="MEDICAMENT" />
+  </EntityType>
+  <EntityType Name="RAPPORT_VISITE">
+    <Key>
+      <PropertyRef Name="VIS_MATRICULE" />
+      <PropertyRef Name="RAP_NUM" />
+    </Key>
+    <Property Name="VIS_MATRICULE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RAP_NUM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRA_NUM" Type="Int16" Nullable="false" />
+    <Property Name="RAP_DATE" Type="DateTime" Precision="0" />
+    <Property Name="RAP_BILAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RAP_MOTIF" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OFFRIR" Relationship="Self.OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_" FromRole="RAPPORT_VISITE" ToRole="OFFRIR" />
+    <NavigationProperty Name="PRATICIEN" Relationship="Self.RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_" FromRole="RAPPORT_VISITE" ToRole="PRATICIEN" />
+    <NavigationProperty Name="VISITEUR" Relationship="Self.RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_" FromRole="RAPPORT_VISITE" ToRole="VISITEUR" />
+  </EntityType>
+  <EntityType Name="REALISER">
+    <Key>
+      <PropertyRef Name="AC_NUM" />
+      <PropertyRef Name="VIS_MATRICULE" />
+    </Key>
+    <Property Name="AC_NUM" Type="Int32" Nullable="false" />
+    <Property Name="VIS_MATRICULE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REA_MTTFRAIS" Type="Single" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ACTIVITE_COMPL" Relationship="Self.REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_" FromRole="REALISER" ToRole="ACTIVITE_COMPL" />
+    <NavigationProperty Name="VISITEUR" Relationship="Self.REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_" FromRole="REALISER" ToRole="VISITEUR" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="REG_CODE" />
+    </Key>
+    <Property Name="REG_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SEC_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REG_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SECTEUR" Relationship="Self.REGION__2A8A348F_6D52_456B_B96A_7B966468977E_" FromRole="REGION" ToRole="SECTEUR" />
+    <NavigationProperty Name="TRAVAILLER" Relationship="Self.TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_" FromRole="REGION" ToRole="TRAVAILLER" />
+  </EntityType>
+  <EntityType Name="SECTEUR">
+    <Key>
+      <PropertyRef Name="SEC_CODE" />
+    </Key>
+    <Property Name="SEC_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SEC_LIBELLE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="REGION" Relationship="Self.REGION__2A8A348F_6D52_456B_B96A_7B966468977E_" FromRole="SECTEUR" ToRole="REGION" />
+    <NavigationProperty Name="VISITEUR" Relationship="Self.VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_" FromRole="SECTEUR" ToRole="VISITEUR" />
+  </EntityType>
+  <EntityType Name="SPECIALITE">
+    <Key>
+      <PropertyRef Name="SPE_CODE" />
+    </Key>
+    <Property Name="SPE_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SPE_LIBELLE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="POSSEDER" Relationship="Self.POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_" FromRole="SPECIALITE" ToRole="POSSEDER" />
+  </EntityType>
+  <EntityType Name="Switchboard_Items">
+    <Key>
+      <PropertyRef Name="SwitchboardID" />
+      <PropertyRef Name="ItemNumber" />
+    </Key>
+    <Property Name="SwitchboardID" Type="Int32" Nullable="false" />
+    <Property Name="ItemNumber" Type="Int16" Nullable="false" />
+    <Property Name="ItemText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Command" Type="Int16" />
+    <Property Name="Argument" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TRAVAILLER">
+    <Key>
+      <PropertyRef Name="VIS_MATRICULE" />
+      <PropertyRef Name="JJMMAA" />
+      <PropertyRef Name="REG_CODE" />
+    </Key>
+    <Property Name="VIS_MATRICULE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JJMMAA" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="REG_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TRA_ROLE" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="REGION" Relationship="Self.TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_" FromRole="TRAVAILLER" ToRole="REGION" />
+    <NavigationProperty Name="VISITEUR" Relationship="Self.TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_" FromRole="TRAVAILLER" ToRole="VISITEUR" />
+  </EntityType>
+  <EntityType Name="TYPE_INDIVIDU">
+    <Key>
+      <PropertyRef Name="TIN_CODE" />
+    </Key>
+    <Property Name="TIN_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TIN_LIBELLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRESCRIRE" Relationship="Self.PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_" FromRole="TYPE_INDIVIDU" ToRole="PRESCRIRE" />
+  </EntityType>
+  <EntityType Name="TYPE_PRATICIEN">
+    <Key>
+      <PropertyRef Name="TYP_CODE" />
+    </Key>
+    <Property Name="TYP_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TYP_LIBELLE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="TYP_LIEU" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRATICIEN" Relationship="Self.PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_" FromRole="TYPE_PRATICIEN" ToRole="PRATICIEN" />
+  </EntityType>
+  <EntityType Name="VISITEUR">
+    <Key>
+      <PropertyRef Name="VIS_MATRICULE" />
+    </Key>
+    <Property Name="VIS_MATRICULE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VIS_NOM" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Vis_PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VIS_ADRESSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VIS_CP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="VIS_VILLE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="VIS_DATEEMBAUCHE" Type="DateTime" Precision="0" />
+    <Property Name="SEC_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="LAB_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="LABO" Relationship="Self.VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_" FromRole="VISITEUR" ToRole="LABO" />
+    <NavigationProperty Name="RAPPORT_VISITE" Relationship="Self.RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_" FromRole="VISITEUR" ToRole="RAPPORT_VISITE" />
+    <NavigationProperty Name="REALISER" Relationship="Self.REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_" FromRole="VISITEUR" ToRole="REALISER" />
+    <NavigationProperty Name="SECTEUR" Relationship="Self.VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_" FromRole="VISITEUR" ToRole="SECTEUR" />
+    <NavigationProperty Name="TRAVAILLER" Relationship="Self.TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_" FromRole="VISITEUR" ToRole="TRAVAILLER" />
+  </EntityType>
+  <Association Name="INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_">
+    <End Role="ACTIVITE_COMPL" Type="Self.ACTIVITE_COMPL" Multiplicity="1" />
+    <End Role="INVITER" Type="Self.INVITER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITE_COMPL">
+        <PropertyRef Name="AC_NUM" />
+      </Principal>
+      <Dependent Role="INVITER">
+        <PropertyRef Name="AC_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_">
+    <End Role="ACTIVITE_COMPL" Type="Self.ACTIVITE_COMPL" Multiplicity="1" />
+    <End Role="REALISER" Type="Self.REALISER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITE_COMPL">
+        <PropertyRef Name="AC_NUM" />
+      </Principal>
+      <Dependent Role="REALISER">
+        <PropertyRef Name="AC_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_">
+    <End Role="COMPOSANT" Type="Self.COMPOSANT" Multiplicity="1" />
+    <End Role="CONSTITUER" Type="Self.CONSTITUER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPOSANT">
+        <PropertyRef Name="CMP_CODE" />
+      </Principal>
+      <Dependent Role="CONSTITUER">
+        <PropertyRef Name="CMP_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_">
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
+    <End Role="CONSTITUER" Type="Self.CONSTITUER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENT">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Principal>
+      <Dependent Role="CONSTITUER">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_">
+    <End Role="DOSAGE" Type="Self.DOSAGE" Multiplicity="1" />
+    <End Role="PRESCRIRE" Type="Self.PRESCRIRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOSAGE">
+        <PropertyRef Name="DOS_CODE" />
+      </Principal>
+      <Dependent Role="PRESCRIRE">
+        <PropertyRef Name="DOS_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_">
+    <End Role="FAMILLE" Type="Self.FAMILLE" Multiplicity="1" />
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAMILLE">
+        <PropertyRef Name="FAM_CODE" />
+      </Principal>
+      <Dependent Role="MEDICAMENT">
+        <PropertyRef Name="FAM_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_">
+    <End Role="PRATICIEN" Type="Self.PRATICIEN" Multiplicity="1" />
+    <End Role="INVITER" Type="Self.INVITER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRATICIEN">
+        <PropertyRef Name="PRA_NUM" />
+      </Principal>
+      <Dependent Role="INVITER">
+        <PropertyRef Name="PRA_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_">
+    <End Role="LABO" Type="Self.LABO" Multiplicity="1" />
+    <End Role="VISITEUR" Type="Self.VISITEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LABO">
+        <PropertyRef Name="LAB_CODE" />
+      </Principal>
+      <Dependent Role="VISITEUR">
+        <PropertyRef Name="LAB_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OFFRIR__212870AC_D285_4251_9654_14A416149517_">
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
+    <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENT">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Principal>
+      <Dependent Role="OFFRIR">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_">
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
+    <End Role="PRESCRIRE" Type="Self.PRESCRIRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENT">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Principal>
+      <Dependent Role="PRESCRIRE">
+        <PropertyRef Name="MED_DEPOTLEGAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_">
+    <End Role="RAPPORT_VISITE" Type="Self.RAPPORT_VISITE" Multiplicity="1" />
+    <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RAPPORT_VISITE">
+        <PropertyRef Name="VIS_MATRICULE" />
+        <PropertyRef Name="RAP_NUM" />
+      </Principal>
+      <Dependent Role="OFFRIR">
+        <PropertyRef Name="VIS_MATRICULE" />
+        <PropertyRef Name="RAP_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_">
+    <End Role="SPECIALITE" Type="Self.SPECIALITE" Multiplicity="1" />
+    <End Role="POSSEDER" Type="Self.POSSEDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPECIALITE">
+        <PropertyRef Name="SPE_CODE" />
+      </Principal>
+      <Dependent Role="POSSEDER">
+        <PropertyRef Name="SPE_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_">
+    <End Role="PRATICIEN" Type="Self.PRATICIEN" Multiplicity="1" />
+    <End Role="POSSEDER" Type="Self.POSSEDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRATICIEN">
+        <PropertyRef Name="PRA_NUM" />
+      </Principal>
+      <Dependent Role="POSSEDER">
+        <PropertyRef Name="PRA_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_">
+    <End Role="TYPE_PRATICIEN" Type="Self.TYPE_PRATICIEN" Multiplicity="1" />
+    <End Role="PRATICIEN" Type="Self.PRATICIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPE_PRATICIEN">
+        <PropertyRef Name="TYP_CODE" />
+      </Principal>
+      <Dependent Role="PRATICIEN">
+        <PropertyRef Name="TYP_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_">
+    <End Role="PRATICIEN" Type="Self.PRATICIEN" Multiplicity="1" />
+    <End Role="RAPPORT_VISITE" Type="Self.RAPPORT_VISITE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRATICIEN">
+        <PropertyRef Name="PRA_NUM" />
+      </Principal>
+      <Dependent Role="RAPPORT_VISITE">
+        <PropertyRef Name="PRA_NUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_">
+    <End Role="TYPE_INDIVIDU" Type="Self.TYPE_INDIVIDU" Multiplicity="1" />
+    <End Role="PRESCRIRE" Type="Self.PRESCRIRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPE_INDIVIDU">
+        <PropertyRef Name="TIN_CODE" />
+      </Principal>
+      <Dependent Role="PRESCRIRE">
+        <PropertyRef Name="TIN_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_">
+    <End Role="VISITEUR" Type="Self.VISITEUR" Multiplicity="1" />
+    <End Role="RAPPORT_VISITE" Type="Self.RAPPORT_VISITE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VISITEUR">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Principal>
+      <Dependent Role="RAPPORT_VISITE">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_">
+    <End Role="VISITEUR" Type="Self.VISITEUR" Multiplicity="1" />
+    <End Role="REALISER" Type="Self.REALISER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VISITEUR">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Principal>
+      <Dependent Role="REALISER">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REGION__2A8A348F_6D52_456B_B96A_7B966468977E_">
+    <End Role="SECTEUR" Type="Self.SECTEUR" Multiplicity="1" />
+    <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SECTEUR">
+        <PropertyRef Name="SEC_CODE" />
+      </Principal>
+      <Dependent Role="REGION">
+        <PropertyRef Name="SEC_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_">
+    <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+    <End Role="TRAVAILLER" Type="Self.TRAVAILLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="REG_CODE" />
+      </Principal>
+      <Dependent Role="TRAVAILLER">
+        <PropertyRef Name="REG_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_">
+    <End Role="SECTEUR" Type="Self.SECTEUR" Multiplicity="0..1" />
+    <End Role="VISITEUR" Type="Self.VISITEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SECTEUR">
+        <PropertyRef Name="SEC_CODE" />
+      </Principal>
+      <Dependent Role="VISITEUR">
+        <PropertyRef Name="SEC_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_">
+    <End Role="VISITEUR" Type="Self.VISITEUR" Multiplicity="1" />
+    <End Role="TRAVAILLER" Type="Self.TRAVAILLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VISITEUR">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Principal>
+      <Dependent Role="TRAVAILLER">
+        <PropertyRef Name="VIS_MATRICULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORMULER">
+    <End Role="PRESENTATION" Type="Self.PRESENTATION" Multiplicity="*" />
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="*" />
+  </Association>
+  <Association Name="INTERAGIR">
+    <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="*" />
+    <End Role="MEDICAMENT1" Type="Self.MEDICAMENT" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="GestionComptesRendusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACTIVITE_COMPL" EntityType="Self.ACTIVITE_COMPL" />
+    <EntitySet Name="COMPOSANT" EntityType="Self.COMPOSANT" />
+    <EntitySet Name="CONSTITUER" EntityType="Self.CONSTITUER" />
+    <EntitySet Name="DOSAGE" EntityType="Self.DOSAGE" />
+    <EntitySet Name="FAMILLE" EntityType="Self.FAMILLE" />
+    <EntitySet Name="INVITER" EntityType="Self.INVITER" />
+    <EntitySet Name="LABO" EntityType="Self.LABO" />
+    <EntitySet Name="MEDICAMENT" EntityType="Self.MEDICAMENT" />
+    <EntitySet Name="OFFRIR" EntityType="Self.OFFRIR" />
+    <EntitySet Name="POSSEDER" EntityType="Self.POSSEDER" />
+    <EntitySet Name="PRATICIEN" EntityType="Self.PRATICIEN" />
+    <EntitySet Name="PRESCRIRE" EntityType="Self.PRESCRIRE" />
+    <EntitySet Name="PRESENTATION" EntityType="Self.PRESENTATION" />
+    <EntitySet Name="RAPPORT_VISITE" EntityType="Self.RAPPORT_VISITE" />
+    <EntitySet Name="REALISER" EntityType="Self.REALISER" />
+    <EntitySet Name="REGION" EntityType="Self.REGION" />
+    <EntitySet Name="SECTEUR" EntityType="Self.SECTEUR" />
+    <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" />
+    <EntitySet Name="Switchboard_Items" EntityType="Self.Switchboard_Items" />
+    <EntitySet Name="TRAVAILLER" EntityType="Self.TRAVAILLER" />
+    <EntitySet Name="TYPE_INDIVIDU" EntityType="Self.TYPE_INDIVIDU" />
+    <EntitySet Name="TYPE_PRATICIEN" EntityType="Self.TYPE_PRATICIEN" />
+    <EntitySet Name="VISITEUR" EntityType="Self.VISITEUR" />
+    <AssociationSet Name="INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_" Association="Self.INVITER__194BCE92_A8C4_4683_91C2_7B1CC0E48F1B_">
+      <End Role="ACTIVITE_COMPL" EntitySet="ACTIVITE_COMPL" />
+      <End Role="INVITER" EntitySet="INVITER" />
+    </AssociationSet>
+    <AssociationSet Name="REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_" Association="Self.REALISER__D1B87024_4384_43BC_9EC9_870194D4BD7B_">
+      <End Role="ACTIVITE_COMPL" EntitySet="ACTIVITE_COMPL" />
+      <End Role="REALISER" EntitySet="REALISER" />
+    </AssociationSet>
+    <AssociationSet Name="CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_" Association="Self.CONSTITUER__71FD2D72_0D6A_43C1_963B_3633406D704D_">
+      <End Role="COMPOSANT" EntitySet="COMPOSANT" />
+      <End Role="CONSTITUER" EntitySet="CONSTITUER" />
+    </AssociationSet>
+    <AssociationSet Name="CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_" Association="Self.CONSTITUER__C117FEE7_AA81_4F86_B5FE_F201F9F80B0D_">
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+      <End Role="CONSTITUER" EntitySet="CONSTITUER" />
+    </AssociationSet>
+    <AssociationSet Name="PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_" Association="Self.PRESCRIRE__C90A61AD_D8EF_48C0_8F11_39ADCC0CB9E6_">
+      <End Role="DOSAGE" EntitySet="DOSAGE" />
+      <End Role="PRESCRIRE" EntitySet="PRESCRIRE" />
+    </AssociationSet>
+    <AssociationSet Name="MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_" Association="Self.MEDICAMENT__413A5D74_85A8_45E7_B320_DF5E9396BAED_">
+      <End Role="FAMILLE" EntitySet="FAMILLE" />
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+    </AssociationSet>
+    <AssociationSet Name="INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_" Association="Self.INVITER__DEB1742C_B963_41D9_9F12_F7F65DC9FC18_">
+      <End Role="PRATICIEN" EntitySet="PRATICIEN" />
+      <End Role="INVITER" EntitySet="INVITER" />
+    </AssociationSet>
+    <AssociationSet Name="VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_" Association="Self.VISITEUR__8D9C46F6_2643_4448_B555_9E5C85169BA4_">
+      <End Role="LABO" EntitySet="LABO" />
+      <End Role="VISITEUR" EntitySet="VISITEUR" />
+    </AssociationSet>
+    <AssociationSet Name="OFFRIR__212870AC_D285_4251_9654_14A416149517_" Association="Self.OFFRIR__212870AC_D285_4251_9654_14A416149517_">
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+      <End Role="OFFRIR" EntitySet="OFFRIR" />
+    </AssociationSet>
+    <AssociationSet Name="PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_" Association="Self.PRESCRIRE__02233D94_7C64_4199_B94D_8E272446F5A6_">
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+      <End Role="PRESCRIRE" EntitySet="PRESCRIRE" />
+    </AssociationSet>
+    <AssociationSet Name="OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_" Association="Self.OFFRIR__3A261F4F_9FED_418E_8FEE_E91583119C7E_">
+      <End Role="RAPPORT_VISITE" EntitySet="RAPPORT_VISITE" />
+      <End Role="OFFRIR" EntitySet="OFFRIR" />
+    </AssociationSet>
+    <AssociationSet Name="POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_" Association="Self.POSSEDER__6F32033E_99CD_4486_8CE2_84644754DE3F_">
+      <End Role="SPECIALITE" EntitySet="SPECIALITE" />
+      <End Role="POSSEDER" EntitySet="POSSEDER" />
+    </AssociationSet>
+    <AssociationSet Name="POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_" Association="Self.POSSEDER__99960067_C04E_44F3_95AF_6F4F392F6347_">
+      <End Role="PRATICIEN" EntitySet="PRATICIEN" />
+      <End Role="POSSEDER" EntitySet="POSSEDER" />
+    </AssociationSet>
+    <AssociationSet Name="PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_" Association="Self.PRATICIEN__1DD782AB_506C_441B_9E6D_7263FD1C1EAF_">
+      <End Role="TYPE_PRATICIEN" EntitySet="TYPE_PRATICIEN" />
+      <End Role="PRATICIEN" EntitySet="PRATICIEN" />
+    </AssociationSet>
+    <AssociationSet Name="RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_" Association="Self.RAPPORT_VISITE__8EE7B4B5_E509_4735_B4DF_9EF80AC6FA90_">
+      <End Role="PRATICIEN" EntitySet="PRATICIEN" />
+      <End Role="RAPPORT_VISITE" EntitySet="RAPPORT_VISITE" />
+    </AssociationSet>
+    <AssociationSet Name="PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_" Association="Self.PRESCRIRE__2551EBD9_3594_4572_9B70_C3ADA46DC4AE_">
+      <End Role="TYPE_INDIVIDU" EntitySet="TYPE_INDIVIDU" />
+      <End Role="PRESCRIRE" EntitySet="PRESCRIRE" />
+    </AssociationSet>
+    <AssociationSet Name="RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_" Association="Self.RAPPORT_VISITE__C0C347FC_9646_4619_9E2A_572232AB4654_">
+      <End Role="VISITEUR" EntitySet="VISITEUR" />
+      <End Role="RAPPORT_VISITE" EntitySet="RAPPORT_VISITE" />
+    </AssociationSet>
+    <AssociationSet Name="REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_" Association="Self.REALISER__E097CD3C_C67D_41B2_9249_8689FD140E16_">
+      <End Role="VISITEUR" EntitySet="VISITEUR" />
+      <End Role="REALISER" EntitySet="REALISER" />
+    </AssociationSet>
+    <AssociationSet Name="REGION__2A8A348F_6D52_456B_B96A_7B966468977E_" Association="Self.REGION__2A8A348F_6D52_456B_B96A_7B966468977E_">
+      <End Role="SECTEUR" EntitySet="SECTEUR" />
+      <End Role="REGION" EntitySet="REGION" />
+    </AssociationSet>
+    <AssociationSet Name="TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_" Association="Self.TRAVAILLER__4019F059_649A_477C_B52B_8191CA9E7AD2_">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="TRAVAILLER" EntitySet="TRAVAILLER" />
+    </AssociationSet>
+    <AssociationSet Name="VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_" Association="Self.VISITEUR__E2A4EA82_136A_4528_A19A_094497A7BBE0_">
+      <End Role="SECTEUR" EntitySet="SECTEUR" />
+      <End Role="VISITEUR" EntitySet="VISITEUR" />
+    </AssociationSet>
+    <AssociationSet Name="TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_" Association="Self.TRAVAILLER__A35E8696_CF02_4BA8_BD16_753CD7E91075_">
+      <End Role="VISITEUR" EntitySet="VISITEUR" />
+      <End Role="TRAVAILLER" EntitySet="TRAVAILLER" />
+    </AssociationSet>
+    <AssociationSet Name="FORMULER" Association="Self.FORMULER">
+      <End Role="PRESENTATION" EntitySet="PRESENTATION" />
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+    </AssociationSet>
+    <AssociationSet Name="INTERAGIR" Association="Self.INTERAGIR">
+      <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+      <End Role="MEDICAMENT1" EntitySet="MEDICAMENT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
