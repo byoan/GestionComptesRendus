@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionComptesRendusModelStoreContainer" CdmEntityContainer="GestionComptesRendusEntities">
+    <EntitySetMapping Name="ACTIVITE_COMPL">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.ACTIVITE_COMPL">
+        <MappingFragment StoreEntitySet="ACTIVITE_COMPL">
+          <ScalarProperty Name="AC_NUM" ColumnName="AC_NUM" />
+          <ScalarProperty Name="AC_DATE" ColumnName="AC_DATE" />
+          <ScalarProperty Name="AC_LIEU" ColumnName="AC_LIEU" />
+          <ScalarProperty Name="AC_THEME" ColumnName="AC_THEME" />
+          <ScalarProperty Name="AC_MOTIF" ColumnName="AC_MOTIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPOSANT">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.COMPOSANT">
+        <MappingFragment StoreEntitySet="COMPOSANT">
+          <ScalarProperty Name="CMP_CODE" ColumnName="CMP_CODE" />
+          <ScalarProperty Name="CMP_LIBELLE" ColumnName="CMP_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONSTITUER">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.CONSTITUER">
+        <MappingFragment StoreEntitySet="CONSTITUER">
+          <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_DEPOTLEGAL" />
+          <ScalarProperty Name="CMP_CODE" ColumnName="CMP_CODE" />
+          <ScalarProperty Name="CST_QTE" ColumnName="CST_QTE" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOSAGE">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.DOSAGE">
+        <MappingFragment StoreEntitySet="DOSAGE">
+          <ScalarProperty Name="DOS_CODE" ColumnName="DOS_CODE" />
+          <ScalarProperty Name="DOS_QUANTITE" ColumnName="DOS_QUANTITE" />
+          <ScalarProperty Name="DOS_UNITE" ColumnName="DOS_UNITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAMILLE">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.FAMILLE">
+        <MappingFragment StoreEntitySet="FAMILLE">
+          <ScalarProperty Name="FAM_CODE" ColumnName="FAM_CODE" />
+          <ScalarProperty Name="FAM_LIBELLE" ColumnName="FAM_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVITER">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.INVITER">
+        <MappingFragment StoreEntitySet="INVITER">
+          <ScalarProperty Name="AC_NUM" ColumnName="AC_NUM" />
+          <ScalarProperty Name="PRA_NUM" ColumnName="PRA_NUM" />
+          <ScalarProperty Name="SPECIALISTEON" ColumnName="SPECIALISTEON" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LABO">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.LABO">
+        <MappingFragment StoreEntitySet="LABO">
+          <ScalarProperty Name="LAB_CODE" ColumnName="LAB_CODE" />
+          <ScalarProperty Name="LAB_NOM" ColumnName="LAB_NOM" />
+          <ScalarProperty Name="LAB_CHEFVENTE" ColumnName="LAB_CHEFVENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDICAMENT">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.MEDICAMENT">
+        <MappingFragment StoreEntitySet="MEDICAMENT">
+          <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_DEPOTLEGAL" />
+          <ScalarProperty Name="MED_NOMCOMMERCIAL" ColumnName="MED_NOMCOMMERCIAL" />
+          <ScalarProperty Name="FAM_CODE" ColumnName="FAM_CODE" />
+          <ScalarProperty Name="MED_COMPOSITION" ColumnName="MED_COMPOSITION" />
+          <ScalarProperty Name="MED_EFFETS" ColumnName="MED_EFFETS" />
+          <ScalarProperty Name="MED_CONTREINDIC" ColumnName="MED_CONTREINDIC" />
+          <ScalarProperty Name="MED_PRIXECHANTILLON" ColumnName="MED_PRIXECHANTILLON" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OFFRIR">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.OFFRIR">
+        <MappingFragment StoreEntitySet="OFFRIR">
+          <ScalarProperty Name="VIS_MATRICULE" ColumnName="VIS_MATRICULE" />
+          <ScalarProperty Name="RAP_NUM" ColumnName="RAP_NUM" />
+          <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_DEPOTLEGAL" />
+          <ScalarProperty Name="OFF_QTE" ColumnName="OFF_QTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSSEDER">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.POSSEDER">
+        <MappingFragment StoreEntitySet="POSSEDER">
+          <ScalarProperty Name="PRA_NUM" ColumnName="PRA_NUM" />
+          <ScalarProperty Name="SPE_CODE" ColumnName="SPE_CODE" />
+          <ScalarProperty Name="POS_DIPLOME" ColumnName="POS_DIPLOME" />
+          <ScalarProperty Name="POS_COEFPRESCRIPTION" ColumnName="POS_COEFPRESCRIPTION" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRATICIEN">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.PRATICIEN">
+        <MappingFragment StoreEntitySet="PRATICIEN">
+          <ScalarProperty Name="PRA_NUM" ColumnName="PRA_NUM" />
+          <ScalarProperty Name="PRA_NOM" ColumnName="PRA_NOM" />
+          <ScalarProperty Name="PRA_PRENOM" ColumnName="PRA_PRENOM" />
+          <ScalarProperty Name="PRA_ADRESSE" ColumnName="PRA_ADRESSE" />
+          <ScalarProperty Name="PRA_CP" ColumnName="PRA_CP" />
+          <ScalarProperty Name="PRA_VILLE" ColumnName="PRA_VILLE" />
+          <ScalarProperty Name="PRA_COEFNOTORIETE" ColumnName="PRA_COEFNOTORIETE" />
+          <ScalarProperty Name="TYP_CODE" ColumnName="TYP_CODE" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESCRIRE">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.PRESCRIRE">
+        <MappingFragment StoreEntitySet="PRESCRIRE">
+          <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_DEPOTLEGAL" />
+          <ScalarProperty Name="TIN_CODE" ColumnName="TIN_CODE" />
+          <ScalarProperty Name="DOS_CODE" ColumnName="DOS_CODE" />
+          <ScalarProperty Name="PRE_POSOLOGIE" ColumnName="PRE_POSOLOGIE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESENTATION">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.PRESENTATION">
+        <MappingFragment StoreEntitySet="PRESENTATION">
+          <ScalarProperty Name="PRE_CODE" ColumnName="PRE_CODE" />
+          <ScalarProperty Name="PRE_LIBELLE" ColumnName="PRE_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAPPORT_VISITE">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.RAPPORT_VISITE">
+        <MappingFragment StoreEntitySet="RAPPORT_VISITE">
+          <ScalarProperty Name="VIS_MATRICULE" ColumnName="VIS_MATRICULE" />
+          <ScalarProperty Name="RAP_NUM" ColumnName="RAP_NUM" />
+          <ScalarProperty Name="PRA_NUM" ColumnName="PRA_NUM" />
+          <ScalarProperty Name="RAP_DATE" ColumnName="RAP_DATE" />
+          <ScalarProperty Name="RAP_BILAN" ColumnName="RAP_BILAN" />
+          <ScalarProperty Name="RAP_MOTIF" ColumnName="RAP_MOTIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REALISER">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.REALISER">
+        <MappingFragment StoreEntitySet="REALISER">
+          <ScalarProperty Name="AC_NUM" ColumnName="AC_NUM" />
+          <ScalarProperty Name="VIS_MATRICULE" ColumnName="VIS_MATRICULE" />
+          <ScalarProperty Name="REA_MTTFRAIS" ColumnName="REA_MTTFRAIS" />
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="REG_CODE" ColumnName="REG_CODE" />
+          <ScalarProperty Name="SEC_CODE" ColumnName="SEC_CODE" />
+          <ScalarProperty Name="REG_NOM" ColumnName="REG_NOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SECTEUR">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.SECTEUR">
+        <MappingFragment StoreEntitySet="SECTEUR">
+          <ScalarProperty Name="SEC_CODE" ColumnName="SEC_CODE" />
+          <ScalarProperty Name="SEC_LIBELLE" ColumnName="SEC_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPECIALITE">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.SPECIALITE">
+        <MappingFragment StoreEntitySet="SPECIALITE">
+          <ScalarProperty Name="SPE_CODE" ColumnName="SPE_CODE" />
+          <ScalarProperty Name="SPE_LIBELLE" ColumnName="SPE_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Switchboard_Items">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.Switchboard_Items">
+        <MappingFragment StoreEntitySet="Switchboard Items">
+          <ScalarProperty Name="SwitchboardID" ColumnName="SwitchboardID" />
+          <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+          <ScalarProperty Name="ItemText" ColumnName="ItemText" />
+          <ScalarProperty Name="Command" ColumnName="Command" />
+          <ScalarProperty Name="Argument" ColumnName="Argument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAVAILLER">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.TRAVAILLER">
+        <MappingFragment StoreEntitySet="TRAVAILLER">
+          <ScalarProperty Name="VIS_MATRICULE" ColumnName="VIS_MATRICULE" />
+          <ScalarProperty Name="JJMMAA" ColumnName="JJMMAA" />
+          <ScalarProperty Name="REG_CODE" ColumnName="REG_CODE" />
+          <ScalarProperty Name="TRA_ROLE" ColumnName="TRA_ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_INDIVIDU">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.TYPE_INDIVIDU">
+        <MappingFragment StoreEntitySet="TYPE_INDIVIDU">
+          <ScalarProperty Name="TIN_CODE" ColumnName="TIN_CODE" />
+          <ScalarProperty Name="TIN_LIBELLE" ColumnName="TIN_LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_PRATICIEN">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.TYPE_PRATICIEN">
+        <MappingFragment StoreEntitySet="TYPE_PRATICIEN">
+          <ScalarProperty Name="TYP_CODE" ColumnName="TYP_CODE" />
+          <ScalarProperty Name="TYP_LIBELLE" ColumnName="TYP_LIBELLE" />
+          <ScalarProperty Name="TYP_LIEU" ColumnName="TYP_LIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITEUR">
+      <EntityTypeMapping TypeName="GestionComptesRendusModel.VISITEUR">
+        <MappingFragment StoreEntitySet="VISITEUR">
+          <ScalarProperty Name="VIS_MATRICULE" ColumnName="VIS_MATRICULE" />
+          <ScalarProperty Name="VIS_NOM" ColumnName="VIS_NOM" />
+          <ScalarProperty Name="Vis_PRENOM" ColumnName="Vis_PRENOM" />
+          <ScalarProperty Name="VIS_ADRESSE" ColumnName="VIS_ADRESSE" />
+          <ScalarProperty Name="VIS_CP" ColumnName="VIS_CP" />
+          <ScalarProperty Name="VIS_VILLE" ColumnName="VIS_VILLE" />
+          <ScalarProperty Name="VIS_DATEEMBAUCHE" ColumnName="VIS_DATEEMBAUCHE" />
+          <ScalarProperty Name="SEC_CODE" ColumnName="SEC_CODE" />
+          <ScalarProperty Name="LAB_CODE" ColumnName="LAB_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FORMULER" TypeName="GestionComptesRendusModel.FORMULER" StoreEntitySet="FORMULER">
+      <EndProperty Name="PRESENTATION">
+        <ScalarProperty Name="PRE_CODE" ColumnName="PRE_CODE" />
+      </EndProperty>
+      <EndProperty Name="MEDICAMENT">
+        <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_DEPOTLEGAL" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="INTERAGIR" TypeName="GestionComptesRendusModel.INTERAGIR" StoreEntitySet="INTERAGIR">
+      <EndProperty Name="MEDICAMENT">
+        <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_PERTURBATEUR" />
+      </EndProperty>
+      <EndProperty Name="MEDICAMENT1">
+        <ScalarProperty Name="MED_DEPOTLEGAL" ColumnName="MED_MED_PERTURBE" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

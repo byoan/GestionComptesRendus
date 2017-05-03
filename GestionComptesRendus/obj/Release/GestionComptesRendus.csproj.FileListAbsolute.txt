@@ -1,0 +1,11 @@
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\bin\Release\GestionComptesRendus.exe.config
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.csprojResolveAssemblyReference.cache
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.CompteRenduDeVisite.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.ListeMedicaments.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.ListePraticiens.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.ListeVisiteursMedicaux.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.LoginForm.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.Menu.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.PraticienDetails.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.Properties.Resources.resources
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\GestionComptesRendus\obj\Release\GestionComptesRendus.csproj.GenerateResource.Cache

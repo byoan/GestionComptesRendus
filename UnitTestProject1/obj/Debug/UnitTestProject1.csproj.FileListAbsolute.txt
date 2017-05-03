@@ -1,0 +1,16 @@
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\UnitTestProject1.dll.config
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EntityFramework.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\GestionComptesRendus.exe
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EFWinforms.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\GestionComptesRendus.pdb
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EntityFramework.xml
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\EFWinforms.pdb
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\antoi\Dropbox\Groupe PPE\Spécialité DEV\Projet « GSB –Visiteurs » en .NET\GestionComptesRendus\GestionComptesRendus\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
